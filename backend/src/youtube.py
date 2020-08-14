@@ -17,6 +17,9 @@ class Youtube():
             forUsername=channel_name
         ).execute()
 
+        if channel == None or "items" not in channel:
+            return None
+
         channel_id = channel["items"][0]["id"]
         return channel_id
     

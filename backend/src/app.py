@@ -21,6 +21,11 @@ def get_channel():
     channel_name = request.args.get("name")
     channel_id = youtube.get_channel_id(channel_name)
 
+    if not channel_id:
+        return jsonify({
+            "message": "Failed to find channel."
+        }), 400
+
     return jsonify({
         "channelId": channel_id
     })
