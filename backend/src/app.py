@@ -2,10 +2,9 @@ import json
 import os
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
-import matplotlib.pyplot as plt
 
-from youtube import Youtube
-from sentiment import Sentiment
+from .youtube import Youtube
+from .sentiment import Sentiment
 
 load_dotenv()
 
