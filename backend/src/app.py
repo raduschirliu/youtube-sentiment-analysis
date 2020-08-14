@@ -21,7 +21,9 @@ def get_channel():
     channel_name = request.args.get("name")
     channel_id = youtube.get_channel_id(channel_name)
 
-    return channel_id
+    return jsonify({
+        "channelId": channel_id
+    })
 
 @app.route('/sentiment', methods=["GET"])
 @cross_origin()
