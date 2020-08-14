@@ -11,14 +11,15 @@ class Youtube():
 
         self.service = build("youtube", "v3", developerKey=key)
     
-    def get_videos(self, channel_name: str) -> dict:
+    def get_channel_id(self, channel_name: str) -> str:
         channel = self.service.channels().list(
             part="snippet",
             forUsername=channel_name
         ).execute()
 
         channel_id = channel["items"][0]["id"]
-
+    
+    def get_videos(self, channel_id: str) -> dict:
         videos = self.service.search().list(
             part="snippet",
             type="video",

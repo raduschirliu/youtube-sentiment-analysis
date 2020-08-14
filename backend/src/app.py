@@ -12,15 +12,22 @@ app = Flask(__name__)
 youtube = Youtube()
 PORT = os.getenv("PORT") or 8000
 
-@app.route('/', methods=["GET"])
+@app.route('/channel', methods=["GET"])
+def get_channel():
+    channel_name = request.args.get("name")
+    channel_id = youtube.get_channel_id(channel_name)
+
+    return channel_id
+
+@app.route('/sentiment', methods=["GET"])
 def get_sentiment():
-    channel_name = request.args.get('channel')
+    channel_id = request.args.get('channel')
     
-    if not channel_name:
+    if not channel_id:
         return jsonify({ "message": "Channel must be provided." }), 400
 
     sentiment = Sentiment()
-    videos = youtube.get_videos(channel_name)
+    videos = youtube.get_videos(channel_id)
 
     data = {}
 
