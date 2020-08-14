@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const API_URL = process.env.REACT_APP_API_URL;
-const REQUEST_CONFIG = {
-  'Content-Type': 'application/json',
-} as AxiosRequestConfig;
+// const REQUEST_CONFIG = {
+//   'Content-Type': 'application/json',
+// } as AxiosRequestConfig;
 
 const Api = {
   getChannelId: (name: string): Promise<any> => {

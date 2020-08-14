@@ -7,6 +7,9 @@ const Channel = () => {
   const [loading, setLoading] = useState(false);
   const [sentimentData, setSentimentData] = useState(null);
 
+  loading;
+  sentimentData;
+
   useEffect(() => {
     console.log('changed!', channelId);
     setLoading(true);
@@ -23,7 +26,7 @@ const Channel = () => {
       .finally(() => setLoading(false));
   }, [channelId]);
 
-  return null;
+  return <p>Test</p>;
 };
 
 export default Channel;
