@@ -18,6 +18,7 @@ class Youtube():
         ).execute()
 
         channel_id = channel["items"][0]["id"]
+        return channel_id
     
     def get_videos(self, channel_id: str) -> dict:
         videos = self.service.search().list(
