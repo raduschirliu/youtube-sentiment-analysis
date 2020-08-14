@@ -1,18 +1,22 @@
 import json
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 from dotenv import load_dotenv
 
 from .youtube import Youtube
 from .sentiment import Sentiment
 
 load_dotenv()
-
-app = Flask(__name__)
-youtube = Youtube()
 PORT = os.getenv("PORT") or 8000
 
+app = Flask(__name__)
+app.config['CORS_HEADERS'] = 'Content-Type'
+cors = CORS(app)
+youtube = Youtube()
+
 @app.route('/channel', methods=["GET"])
+@cross_origin()
 def get_channel():
     channel_name = request.args.get("name")
     channel_id = youtube.get_channel_id(channel_name)
@@ -20,6 +24,7 @@ def get_channel():
     return channel_id
 
 @app.route('/sentiment', methods=["GET"])
+@cross_origin()
 def get_sentiment():
     channel_id = request.args.get('channel')
     
