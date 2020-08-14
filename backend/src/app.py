@@ -41,7 +41,7 @@ def get_sentiment():
     sentiment = Sentiment()
     videos = youtube.get_videos(channel_id)
 
-    data = {}
+    data = []
 
     for video in videos["items"]:
         print(json.dumps(video["id"], indent=2))
@@ -55,11 +55,11 @@ def get_sentiment():
                 "text": comment["snippet"]["topLevelComment"]["snippet"]["textDisplay"]
             })
 
-        data[video_id] = {
+        data.append({
             "id": video_id,
             "title": video["snippet"]["title"],
             "comments": comments_data
-        }
+        })
     
     sentiment.calculate_sentiment(data)
     return jsonify(data)

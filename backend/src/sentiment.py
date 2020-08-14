@@ -3,8 +3,7 @@ from textblob import TextBlob
 
 class Sentiment():
     def calculate_sentiment(self, data: dict) -> dict:
-        for video_id in data:
-            video = data[video_id]
+        for video in data:
             polarity = []
             subjectivity = []
 
