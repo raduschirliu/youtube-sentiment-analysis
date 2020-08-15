@@ -23,6 +23,14 @@ class Youtube():
         channel_id = channel["items"][0]["id"]
         return channel_id
     
+    def get_channel_details(self, channel_id: str) -> dict:
+        channel = self.service.channels().list(
+            part="snippet,statistics",
+            id=channel_id
+        ).execute()
+
+        return channel
+    
     def get_videos(self, channel_id: str) -> dict:
         videos = self.service.search().list(
             part="snippet",

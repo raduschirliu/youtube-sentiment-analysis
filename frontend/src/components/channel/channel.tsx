@@ -10,7 +10,6 @@ const Channel = () => {
   console.log(sentimentData);
 
   useEffect(() => {
-    console.log('changed!', channelId);
     setLoading(true);
 
     Api.getSentiment(channelId)

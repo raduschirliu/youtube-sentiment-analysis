@@ -1,4 +1,4 @@
-Backend REST API for the youtube-sentiment-analysis project, built using Python, Flask, TextBlob/NLTK, and Google's YouTube Data APAI.
+Backend REST API for the youtube-sentiment-analysis project, built using Python, Flask, TextBlob/NLTK, Redis, and Google's YouTube Data APAI.
 
 ## Building and Running
 To build and run the backend, first clone the repo and change into the backend folder
@@ -11,6 +11,7 @@ set the neccesary environment variables (either globally or in a `.env` file in 
 ```bash
 # YouTube API key
 API_KEY=api-key-here
+REDIS_URL=redis://url-here
 ```
 
 create a virtual environment and install dependencies through pip
