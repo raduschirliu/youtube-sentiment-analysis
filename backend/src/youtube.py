@@ -28,8 +28,11 @@ class Youtube():
             part="snippet,statistics",
             id=channel_id
         ).execute()
+        
+        if channel == None or "items" not in channel:
+            return None
 
-        return channel
+        return channel["items"][0]
     
     def get_videos(self, channel_id: str) -> dict:
         videos = self.service.search().list(

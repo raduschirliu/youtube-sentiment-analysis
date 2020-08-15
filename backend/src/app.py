@@ -37,6 +37,7 @@ def get_channel():
 @cross_origin()
 def get_sentiment():
     channel_id = request.args.get('channel')
+    invalidate = request.args.get('invalidate') == "true"
     
     if not channel_id:
         return jsonify({ "message": "Channel must be provided." }), 400
@@ -44,10 +45,11 @@ def get_sentiment():
     # First try to get data from cache
     # TODO: Better strategy for invalidating cache if newer videos have been added.
     # Perhaps cache individual video instead?
-    cache_data = cache.get(channel_id)
+    if not invalidate:
+        cache_data = cache.get(channel_id)
 
-    # if cache_data:
-    #     return jsonify(json.loads(cache_data))
+        if cache_data:
+            return jsonify(json.loads(cache_data))
 
     sentiment = Sentiment()
     videos = youtube.get_videos(channel_id)
