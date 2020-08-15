@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Api from '../../api/api';
+import { CircularProgress } from '@material-ui/core';
 
 const Channel = () => {
   const { channelId } = useParams();
   const [loading, setLoading] = useState(false);
   const [sentimentData, setSentimentData] = useState(null);
-
-  loading;
-  sentimentData;
+  console.log(sentimentData);
 
   useEffect(() => {
     console.log('changed!', channelId);
@@ -26,7 +25,7 @@ const Channel = () => {
       .finally(() => setLoading(false));
   }, [channelId]);
 
-  return <p>Test</p>;
+  return loading ? <CircularProgress /> : <p>Loaded</p>;
 };
 
 export default Channel;
