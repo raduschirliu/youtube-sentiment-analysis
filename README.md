@@ -13,5 +13,5 @@ and deploying can be found in the [frontend](https://github.com/raduschirliu/you
 
 ### Backend
 
-The backend is a REST API built using Python, Flask, and TextBlob/NLTK for the sentiment analysis. More information
+The backend is a REST API built using Python, Flask, Redis, and TextBlob/NLTK for the sentiment analysis. More information
 about building and deploying can be found in the [backend](https://github.com/raduschirliu/youtube-sentiment-analysis/tree/master/backend) folder.
