@@ -1,6 +1,5 @@
 # youtube-sentiment-analysis
 
-![Heroku Status](https://heroku-badge.herokuapp.com/?app=youtube-sentiment-analysis)
 ![Netlify Status](https://api.netlify.com/api/v1/badges/2277635f-9f54-4614-a87b-2b28a0627106/deploy-status)
 
 
